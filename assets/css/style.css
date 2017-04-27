@@ -31,7 +31,8 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #E3E3E3;
+  color: #233142;
 }
 ol, ul {
   list-style: none;
@@ -52,6 +53,13 @@ table {
   border-spacing: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: #F95959;
+}
+
 .container {
   display: block;
   width: 100%;
@@ -60,26 +68,32 @@ table {
 }
 
 header {
-  background-color: blue;
+  background-color: #455D7A;
   color: white !important;
-  padding: 10em 0 2em;
+  padding: 5em 0 2em;
   margin-bottom: 5em;
   text-align: center;
 }
 
 h1 {
   font-size: 3rem;
+  color: #fff;
 }
 
 h3 {
   margin: 3em 0 1em;
   font-size: 1.5rem;
+  color: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Nunito', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  text-align: center;
+h2 {
+  font-size: 2.5rem;
+  margin: .7em 0;
+}
+
+h4 {
+  font-size: 1.2rem;
+  color: #455D7A;
 }
 
 form {
@@ -93,7 +107,7 @@ label {
   display: block;
   font-family: 'Nunito', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: blue;
+  color: #F95959;
   margin: 1.2em 0 .5em;
 }
 
@@ -114,7 +128,7 @@ input, select {
   font-weight: 700;
   cursor: pointer;
   color: #fff;
-  background-color: blue;
+  background-color: #F95959;
   letter-spacing: 1px;
   font-size: 90%;
   padding: 1em 0;
@@ -124,20 +138,28 @@ input, select {
 }
 
 .btn:hover, .btn:active, .btn:focus {
-  background-color: darkblue;
+  background-color: #F95959;
   transition: .5s ease all;
 }
 
 p {
   font-family: 'Open Sans', sans-serif;
-  display: block;
-  margin: 1em 0;
+  display: inline-block;
+  margin: 1em;
   line-height: 1.7;
-  text-align: center;
+  color: #233142;
 }
 
+#tareas {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.check{
+  display: inline;
+  width: initial;
+}
 span {
-  border-bottom: 2px blue solid;
+  border-bottom: 2px #F95959 solid;
   font-weight: 700;
 }
 
@@ -145,7 +167,7 @@ b {
   font-family: 'Nunito', Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 112%;
-  color: blue;
+  color: #F95959;
 }
 
 small {

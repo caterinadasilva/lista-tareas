@@ -1239,7 +1239,9 @@ function printTareas() {
 	var dataDiez = data.dataStore.slice(data.dataStore.length-10, data.dataStore.length);
 
 	console.log(dataDiez);
-	dataDiez.forEach(function(elem){tareas.innerHTML += "<li><p>" + elem.title + "</p></div></li>";});
+	dataDiez.forEach(function(elem){
+		tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div></li>';
+	});
 
 }
 printTareas();
