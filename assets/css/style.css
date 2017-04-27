@@ -98,7 +98,7 @@ label {
 }
 
 input, select {
-    width: 100%;
+    width: 98%;
     border-radius: 3px;
     border: 1px solid #f1f1f1;
     line-height: 120%;
@@ -117,9 +117,10 @@ input, select {
   background-color: blue;
   letter-spacing: 1px;
   font-size: 90%;
-  padding: 1em .5em;
+  padding: 1em 0;
   transition: .5s ease all;
   margin: 1.2em 0 .5em;
+  width: 100%;
 }
 
 .btn:hover, .btn:active, .btn:focus {
@@ -149,6 +150,10 @@ b {
 
 small {
   font-size: .8rem;
+}
+
+#lista {
+    margin: 5em 3em 3em;
 }
 
 footer {

@@ -15,12 +15,11 @@ function Queue(){
   }; 
 }
 
-var data = new Queue();
-data = [
+var tareasAnteriores = [
   {
     "userId": 1,
     "id": 1,
-    "title": "delectus aut autem",
+    "title": "200delectus aut autem",
     "completed": false
   },
   {
@@ -1202,19 +1201,53 @@ data = [
   {
     "userId": 10,
     "id": 198,
-    "title": "quis eius est sint explicabo",
+    "title": "3quis eius est sint explicabo",
     "completed": true
   },
   {
     "userId": 10,
     "id": 199,
-    "title": "numquam repellendus a magnam",
+    "title": "2numquam repellendus a magnam",
     "completed": true
   },
   {
     "userId": 10,
     "id": 200,
-    "title": "ipsam aperiam voluptates qui",
+    "title": "1ipsam aperiam voluptates qui",
     "completed": false
   }
 ];
+
+function Tarea(userId, title, completed) {
+	this.userId = userId,
+	this.title = title,
+	this.completed = completed
+};
+
+var data = new Queue();
+
+function lifo(arr){
+    for(var i = arr.length - 1; i >= 0; i--){
+    	var anterior = new Tarea (arr[i].userId,arr[i].title,arr[i].completed);
+      data.enqueue(anterior);
+    }
+  return data.dataStore;
+}
+lifo(tareasAnteriores);
+function printTareas() {
+	var tareas = document.getElementById('tareas');
+	var dataDiez = data.dataStore.slice(data.dataStore.length-10, data.dataStore.length);
+
+	console.log(dataDiez);
+	dataDiez.forEach(function(elem){tareas.innerHTML += "<li><p>" + elem.title + "</p></div></li>";});
+
+}
+printTareas();
+function anadirTarea(){
+	var tituloTarea = document.getElementById('name').value;
+	var nuevaTarea = new Tarea (1, tituloTarea, false);
+	data.enqueue(nuevaTarea);
+	console.log(nuevaTarea);
+	tareas.innerHTML = "";
+	printTareas();
+}
