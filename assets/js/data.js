@@ -1217,6 +1217,7 @@ var tareasAnteriores = [
     "completed": false
   }
 ];
+
 function Tarea(userId, title, completed) {
 	this.userId = userId,
 	this.title = title,
@@ -1225,7 +1226,6 @@ function Tarea(userId, title, completed) {
 
 var data = new Queue();
 
-
 function lifo(arr){
     for(var i = arr.length - 1; i >= 0; i--){
     	var anterior = new Tarea (arr[i].userId,arr[i].title,arr[i].completed);
@@ -1233,14 +1233,7 @@ function lifo(arr){
     }
   return data.dataStore;
 }
-
 lifo(tareasAnteriores);
-
-function myFunction(elmnt) {
-	var x = elmnt.parentNode;
-    x.style.color = "red";
-}
-
 function printTareas() {
 	var tareas = document.getElementById('tareas');
 	var dataDiez = data.dataStore.slice(data.dataStore.length-10, data.dataStore.length);
@@ -1248,10 +1241,10 @@ function printTareas() {
 	console.log(dataDiez);
 	var msg = "'Era broma jijijiji :3'";
 	dataDiez.forEach(function(elem){
-		tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + ' <span onclick="myFunction(this)">Editar</span></p></li>';
+		tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div><button type="button" onclick="alert(' + msg + ')">Editar</button></li>';
 	});
-}
 
+}
 printTareas();
 function anadirTarea(){
 	var tituloTarea = document.getElementById('name').value;
