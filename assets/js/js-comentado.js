@@ -1,20 +1,4 @@
-// Mostrar sólo los primeros 10, sólo el title en una lista
-function Queue(){
-  this.dataStore = [];
-  this.enqueue = function(element) {
-    this.dataStore.push(element);
-  };
-  this.dequeue = function() {
-    return this.dataStore.shift();
-  };
-  this.empty = function() {
-    return this.dataStore.length == 0;
-  };
-  this.print = function(element) {
-    return console.log(this.dataStore);
-  }; 
-}
-
+// variable que contiene todos los objetos traídos del API
 var tareasAnteriores = [
   {
     "userId": 1,
@@ -1217,47 +1201,63 @@ var tareasAnteriores = [
     "completed": false
   }
 ];
-function Tarea(userId, title, completed) {
-	this.userId = userId,
-	this.title = title,
-	this.completed = completed
-};
 
+// función queue para el nuevo array que contenga todos los objetos "Tarea"
+function Queue(){
+  this.dataStore = [];
+  this.enqueue = function(element) {
+    this.dataStore.push(element);
+  };
+  this.dequeue = function() {
+    return this.dataStore.shift();
+  };
+  this.empty = function() {
+    return this.dataStore.length == 0;
+  };
+  this.print = function(element) {
+    return console.log(this.dataStore);
+  }; 
+}
+// arreglo que contiene todos los objetos Tarea
 var data = new Queue();
 
+// constructor de objetos Tarea
+function Tarea(userId, title, completed) {
+  this.userId = userId,
+  this.title = title,
+  this.completed = completed
+};
 
+// función que toma todos los objetos de tareasAnteriores, los transforma en Tareas y los agrega de atrás para adelante al arreglo "data"
 function lifo(arr){
     for(var i = arr.length - 1; i >= 0; i--){
-    	var anterior = new Tarea (arr[i].userId,arr[i].title,arr[i].completed);
+      var anterior = new Tarea (arr[i].userId,arr[i].title,arr[i].completed);
       data.enqueue(anterior);
     }
   return data.dataStore;
 }
-
 lifo(tareasAnteriores);
 
-function myFunction(elmnt) {
-	var x = elmnt.parentNode;
-    x.style.color = "red";
-}
-
+// función que imprime los 10 últimos objetos del array "data"
 function printTareas() {
-	var tareas = document.getElementById('tareas');
-	var dataDiez = data.dataStore.slice(data.dataStore.length-10, data.dataStore.length);
+  var tareas = document.getElementById('tareas');
+  // Mostrar sólo los últimos 10 de la lista
+  var dataDiez = data.dataStore.slice(data.dataStore.length-10, data.dataStore.length);
+  console.log(dataDiez); 
+  var msg = "'Era broma jijijiji :3'"; // mensaje del alert del botón porque no funciona :P
+  dataDiez.forEach(function(elem){
+    tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div><button type="button" onclick="alert(' + msg + ')">Editar</button></li>';
+  });
 
-	console.log(dataDiez);
-	var msg = "'Era broma jijijiji :3'";
-	dataDiez.forEach(function(elem){
-		tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + ' <span onclick="myFunction(this)">Editar</span></p></li>';
-	});
 }
-
 printTareas();
+
+// función que crea un nuevo objeto Tarea y lo agrega al array "data"
 function anadirTarea(){
-	var tituloTarea = document.getElementById('name').value;
-	var nuevaTarea = new Tarea (1, tituloTarea, false);
-	data.enqueue(nuevaTarea);
-	console.log(nuevaTarea);
-	tareas.innerHTML = "";
-	printTareas();
+  var tituloTarea = document.getElementById('name').value;
+  var nuevaTarea = new Tarea (1, tituloTarea, false);
+  data.enqueue(nuevaTarea);
+  console.log(nuevaTarea);
+  tareas.innerHTML = "";
+  printTareas();
 }
