@@ -1246,7 +1246,7 @@ function printTareas() {
   console.log(dataDiez); 
   var msg = "'Era broma jijijiji :3'"; // mensaje del alert del botón porque no funciona :P
   dataDiez.forEach(function(elem){
-    tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div><button type="button" onclick="alert(' + msg + ')">Editar</button></li>';
+    tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div><button type="button" class="btn" onclick="alert(' + msg + ')">Editar</button></li>';
   });
 
 }

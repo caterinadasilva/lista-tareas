@@ -135,11 +135,20 @@ input, select {
   transition: .5s ease all;
   margin: 1.2em 0 .5em;
   width: 100%;
+  border: none;
 }
 
 .btn:hover, .btn:active, .btn:focus {
-  background-color: #F95959;
+  background-color: #F94348;
   transition: .5s ease all;
+}
+.btn.small {
+    width: initial;
+    display: inline-block;
+    padding: .25em .75em;
+    font-size: 85%;
+    border: none;
+    float: right;
 }
 
 p {

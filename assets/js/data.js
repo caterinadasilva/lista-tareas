@@ -1222,6 +1222,10 @@ function Tarea(userId, title, completed) {
 	this.userId = userId,
 	this.title = title,
 	this.completed = completed
+
+  this.changeName = function (name) {
+        this.title = name;
+    };
 };
 
 var data = new Queue();
@@ -1241,16 +1245,20 @@ function printTareas() {
 	console.log(dataDiez);
 	var msg = "'Era broma jijijiji :3'";
 	dataDiez.forEach(function(elem){
-		tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div><button type="button" onclick="alert(' + msg + ')">Editar</button></li>';
+		tareas.innerHTML += '<li><input type="checkbox" name="checkbox" class="check"/><p>' + elem.title + '</p></div><button class="btn small" type="button" onclick="alert(' + msg + ')">Editar</button></li>';
 	});
 
 }
 printTareas();
 function anadirTarea(){
-	var tituloTarea = document.getElementById('name').value;
-	var nuevaTarea = new Tarea (1, tituloTarea, false);
-	data.enqueue(nuevaTarea);
-	console.log(nuevaTarea);
-	tareas.innerHTML = "";
-	printTareas();
+  event.preventDefault();
+  var tituloTarea = document.getElementById('name').value;
+  if (tituloTarea != "") {
+    var nuevaTarea = new Tarea (1, tituloTarea, false);
+  	data.enqueue(nuevaTarea);
+  	console.log(nuevaTarea);
+  	tareas.innerHTML = "";
+  	printTareas();
+    document.getElementById('name').value = "";
+  }
 }
